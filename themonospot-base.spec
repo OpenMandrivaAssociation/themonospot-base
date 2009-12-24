@@ -3,7 +3,7 @@ Name      : themonospot-base
 Version   : 0.8.1
 Release   : %mkrel 1
 License   : GPLv2
-Group     : Applications/Multimedia
+Group     : Video
 Source    : http://www.integrazioneweb.com/repository/SOURCES/themonospot-base-%{version}.tar.gz
 BuildRoot : %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL       : http://www.integrazioneweb.com/themonospot
