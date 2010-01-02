@@ -1,6 +1,6 @@
-Summary   : Base component for themonospot system, parser/editor and content descriptor
+Summary   : Base component for themonospot gui's/console components, parser/editor and content descriptor
 Name      : themonospot-base
-Version   : 0.8.1
+Version   : 0.8.2
 Release   : %mkrel 1
 License   : GPLv2
 Group     : Video
@@ -10,21 +10,30 @@ URL       : http://www.integrazioneweb.com/themonospot
 
 #BuildArch : noarch
 
-BuildRequires: mono >= 1.2.3
-BuildRequires: pkgconfig
+BuildRequires: mono-devel
 
-Requires: mono >= 1.2.3
+Obsoletes: themonospot < 0.8.0
 
 # Suggest principal plugins
-Suggests: themonospot-plugin-avi
-Suggests: themonospot-plugin-mkv
+Suggests: themonospot-plugin-avi > 0.1.0
+Suggests: themonospot-plugin-mkv > 0.1.0
 
 %description
-themonospot-base is core package for themonospot system. It install:
-    - themonospot-base mono assembly in GAC (use from other gui applications)
-    - themonospot-plugin-interface in GAC (use to write plugins)
+themonospot-base is core package of themonospot suite. It install:
+    - themonospot-base mono assembly (use from other gui applications)
+    - themonospot-plugin-interface (use to write plugins)
     - themonospot-plugin-manager (use to load plugins at runtime)
     - xml language files
+
+
+%package devel
+Summary: Development files for themonospot-base
+Group: Development/Other
+Requires: %{name} = %{version}-%{release}
+
+
+%description devel
+Development files for themonospot-base 
 
 
 %prep
@@ -37,6 +46,7 @@ themonospot-base is core package for themonospot system. It install:
 %install
 rm -fr %{buildroot}
 %makeinstall_std
+chmod 0755 %{buildroot}%{_libdir}/themonospot/*.dll
 
 
 %clean
@@ -46,13 +56,21 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root,-)
 %doc themonospot-base/readme themonospot-base/copying.gpl
-%{_libdir}/%{name}/
-%{_libdir}/mono/
-%{_libdir}/pkgconfig/themonospot-base.pc
-%{_libdir}/pkgconfig/themonospot-plugin-interface.pc
+%{_libdir}/themonospot/
 %{_datadir}/themonospot/
 
+%files devel
+%defattr(-,root,root,-)
+%{_libdir}/pkgconfig/* 
+
+
+
 %changelog
+* Fri Jan 01 2010 Armando Basile <hmandevteam@gmail.com> 0.8.2-1mdv2010.1
+- changed file permissions for dll assembly after buildroot install
+- added Obsoletes
+- removed GAC use
+
 * Mon Dec 14 2009 Armando Basile <hmandevteam@gmail.com> 0.8.1-1mdv2010.1
-- first release of new base component
+- first release of new base component to use themonospot
 
