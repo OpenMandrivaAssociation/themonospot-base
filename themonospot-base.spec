@@ -65,12 +65,18 @@ rm -rf %{buildroot}
 
 
 
+
+
 %changelog
-* Fri Jan 01 2010 Armando Basile <hmandevteam@gmail.com> 0.8.2-1mdv2010.1
+* Sat Jan 02 2010 Armando Basile <hman@mandriva.org> 0.8.2-1mdv2010.1
++ Revision: 485098
 - changed file permissions for dll assembly after buildroot install
 - added Obsoletes
 - removed GAC use
 
-* Mon Dec 14 2009 Armando Basile <hmandevteam@gmail.com> 0.8.1-1mdv2010.1
-- first release of new base component to use themonospot
+* Thu Dec 24 2009 Armando Basile <hman@mandriva.org> 0.8.1-1mdv2010.1
++ Revision: 481978
+- update spec file Group
+- first public release of core component of new Themonospot suite
+- create themonospot-base
 
