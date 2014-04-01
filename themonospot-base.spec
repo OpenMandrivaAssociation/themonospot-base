@@ -1,4 +1,4 @@
-Summary: Base component for themonospot gui's/console components, parser/editor and content descriptor
+Summary: Base component for themonospot components
 Name:    themonospot-base
 Version: 0.8.2
 Release: 1
