@@ -1,7 +1,7 @@
 Summary: Base component for themonospot components
 Name:    themonospot-base
 Version: 0.8.2
-Release: 1
+Release: 2
 License: GPLv2
 Group:   Video
 Source:  http://www.integrazioneweb.com/repository/SOURCES/themonospot-base-%{version}.tar.gz
